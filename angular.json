@@ -20,7 +20,7 @@
                         "outputPath": "dist/jv13-craft-front",
                         "index": "src/index.html",
                         "browser": "src/main.ts",
-                        "polyfills": ["zone.js"],
+                        "polyfills": ["zone.js", "zone.js/testing"],
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
                         "assets": [
@@ -29,8 +29,7 @@
                                 "input": "public"
                             }
                         ],
-                        "styles": ["src/styles.scss"],
-                        "scripts": []
+                        "styles": ["src/styles.scss"]
                     },
                     "configurations": {
                         "production": {
@@ -85,6 +84,15 @@
                         ],
                         "styles": ["src/styles.scss"],
                         "scripts": []
+                    }
+                },
+                "deploy": {
+                    "builder": "angular-cli-ghpages:deploy",
+                    "options": {
+                        "baseHref": "https://cherkasivan.github.io/handemade_frontend/angular-cli-ghpages/",
+                        "buildTarget": "jv13-craft-front:build:production",
+                        "name": "jv13",
+                        "email": "cherkas.ivan13@gmail.com"
                     }
                 }
             }
