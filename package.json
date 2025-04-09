@@ -7,6 +7,8 @@
         "build": "ng build",
         "build:prod": "ng build --configuration production",
         "build:dev": "ng build --configuration development",
+        "lint": "tslint -p tsconfig.json",
+        "precommit": "npm run lint",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "prettier": "npx prettier \"./{css,html,grunt,js,src}/**\" --write --log-level=\"warn\""
@@ -35,6 +37,7 @@
         "tailwindcss": "^4.1.3",
         "tailwindcss-primeui": "^0.6.1",
         "tslib": "^2.3.0",
+        "tslint": "^6.1.3",
         "tslint-config-prettier": "^1.18.0",
         "zone.js": "~0.15.0"
     },
