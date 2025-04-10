@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json.schemastore.org/tslint",
+    "id": "Component",
+    "title": "Component",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "The name of the component."
+        }
+    },
+    "required": ["name"]
+}

@@ -1,20 +1,33 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
+
+import {
+    ApplicationConfig,
+    importProvidersFrom,
+    provideZoneChangeDetection,
+} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { PreloadAllModules, RouterModule } from '@angular/router';
+
 import Aura from '@primeng/themes/aura';
 
-import { routes } from './app.routes';
+import { MAIN_ROUTES } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
-    provideAnimationsAsync(),
-    providePrimeNG({
-      theme: {
-        preset: Aura,
-      },
-    }),
-  ],
+    providers: [
+        provideZoneChangeDetection({ eventCoalescing: true }),
+        provideAnimationsAsync(),
+        providePrimeNG({
+            theme: {
+                preset: Aura,
+            },
+        }),
+
+        importProvidersFrom([
+            BrowserModule,
+            RouterModule.forRoot(MAIN_ROUTES, {
+                preloadingStrategy: PreloadAllModules,
+            }),
+        ]),
+    ],
 };
