@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json.schemastore.org/tslint",
+    "extends": ["tslint:recommended", "tslint-config-prettier"],
+    "rules": {
+        "semicolon": [true, "always"],
+        "quotemark": [true, "single"],
+        "trailing-comma": [
+            true,
+            { "multiline": "always", "singleline": "never" }
+        ],
+        "no-console": [true, "log", "error"],
+        "indent": [true, "spaces", 4],
+        "max-line-length": [true, 120],
+        "interface-name": [true, "never-prefix"],
+        "no-inferrable-types": [true, "ignore-params"],
+        "member-access": [true, "no-public"],
+        "object-literal-sort-keys": false
+    },
+    "defaultSeverity": "error",
+    "jsRules": {},
+    "rulesDirectory": []
+}
