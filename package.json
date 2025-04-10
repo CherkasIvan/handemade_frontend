@@ -32,6 +32,7 @@
         "@primeng/themes": "^19.0.10",
         "@trivago/prettier-plugin-sort-imports": "^5.2.2",
         "angular-cli-ghpages": "^2.0.3",
+        "lint-staged": "^15.5.0",
         "postcss": "^8.5.3",
         "prettier": "^3.5.3",
         "prettier-plugin-css-order": "^2.1.2",
@@ -66,13 +67,19 @@
         "karma-coverage": "~2.2.1",
         "karma-jasmine": "~5.1.0",
         "karma-jasmine-html-reporter": "~2.1.0",
+        "ngx-build-plus": "^19.0.0",
         "storybook": "^8.6.12",
         "typescript": "~5.8.3",
         "typescript-eslint": "8.29.1"
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm run lint && npm test"
-        }
+    "lint-staged": {
+        "*.ts": [
+            "eslint --fix",
+            "git add"
+        ],
+        "*.scss": [
+            "stylelint --fix",
+            "git add"
+        ]
     }
 }
