@@ -3,42 +3,25 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "jv13-craft-front": {
+        "jw13-craft-front": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
-                    "style": "scss",
                     "standalone": true,
-                    "path": "schematics/component"
+                    "style": "scss"
                 }
             },
             "root": "",
             "sourceRoot": "src",
-            "prefix": "craft",
+            "prefix": "craft-shell",
             "architect": {
-                "storybook": {
-                    "builder": "@storybook/angular:start-storybook",
-                    "options": {
-                        "configDir": ".storybook",
-                        "browserTarget": "jv13-craft-front:build",
-                        "port": 6006
-                    }
-                },
-                "build-storybook": {
-                    "builder": "@storybook/angular:build-storybook",
-                    "options": {
-                        "configDir": ".storybook",
-                        "browserTarget": "jv13-craft-front:build",
-                        "outputDir": "dist/storybook/jv13-craft-front"
-                    }
-                },
                 "build": {
                     "builder": "@angular-devkit/build-angular:application",
                     "options": {
-                        "outputPath": "dist/jv13-craft-front",
+                        "outputPath": "dist/jw13-craft-front",
                         "index": "src/index.html",
                         "browser": "src/main.ts",
-                        "polyfills": ["zone.js", "zone.js/testing"],
+                        "polyfills": ["zone.js"],
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
                         "assets": [
@@ -47,7 +30,8 @@
                                 "input": "public"
                             }
                         ],
-                        "styles": ["src/styles.scss"]
+                        "styles": ["src/styles.scss"],
+                        "scripts": []
                     },
                     "configurations": {
                         "production": {
@@ -77,10 +61,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "buildTarget": "jv13-craft-front:build:production"
+                            "buildTarget": "jw13-craft-front:build:production"
                         },
                         "development": {
-                            "buildTarget": "jv13-craft-front:build:development"
+                            "buildTarget": "jw13-craft-front:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -104,25 +88,27 @@
                         "scripts": []
                     }
                 },
-                "deploy": {
-                    "builder": "angular-cli-ghpages:deploy",
+                "storybook": {
+                    "builder": "@storybook/angular:start-storybook",
                     "options": {
-                        "baseHref": "https://cherkasivan.github.io/handemade_frontend/angular-cli-ghpages/",
-                        "buildTarget": "jv13-craft-front:build:production",
-                        "name": "jv13",
-                        "email": "cherkas.ivan13@gmail.com"
+                        "configDir": ".storybook",
+                        "browserTarget": "jw13-craft-front:build",
+                        "compodoc": true,
+                        "compodocArgs": ["-e", "json", "-d", "."],
+                        "port": 6666
                     }
                 },
-                "lint": {
-                    "builder": "@angular-eslint/builder:lint",
+                "build-storybook": {
+                    "builder": "@storybook/angular:build-storybook",
                     "options": {
-                        "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+                        "configDir": ".storybook",
+                        "browserTarget": "jw13-craft-front:build",
+                        "compodoc": true,
+                        "compodocArgs": ["-e", "json", "-d", "."],
+                        "outputDir": "storybook-static"
                     }
                 }
             }
         }
-    },
-    "cli": {
-        "schematicCollections": ["angular-eslint"]
     }
 }

@@ -1,0 +1,474 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [
+        {
+            "name": "DestroyService",
+            "id": "injectable-DestroyService-975de17e6f883556806203d11df015fcae4df1ec206c1772e76463df6b54c91692c642b24c9f6c05ff6251be21cbd0ea403c01a64112e0b490e76667473fee69",
+            "file": "src/core/service/destroy.service.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { ReplaySubject } from 'rxjs';\r\n\r\nimport { Injectable, OnDestroy } from '@angular/core';\r\n\r\n@Injectable({\r\n    providedIn: 'root',\r\n})\r\nexport class DestroyService extends ReplaySubject<void> implements OnDestroy {\r\n    constructor() {\r\n        super();\r\n    }\r\n\r\n    ngOnDestroy() {\r\n        this.next();\r\n        this.complete();\r\n    }\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "extends": [
+                "ReplaySubject"
+            ],
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [
+        {
+            "name": "ModalDialogBase",
+            "id": "class-ModalDialogBase-6fba34c1480dd0dc34de1c84c52183a0db6ff4e9bf4f20f5b77d05a86198585419e535cc5ce58a038724b71f97b898afbaa65e8c4c2f4b71c4751e1c367794e6",
+            "file": "src/utils/enum/modal-dialog.base.enum.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { Subject } from 'rxjs';\r\n\r\nexport abstract class ModalDialogBase {\r\n    public abstract getDialogState(): Subject<ModalDialogResult>;\r\n}\r\n\r\nexport enum ModalDialogResult {\r\n    Opened,\r\n    Confirmed,\r\n    Closed,\r\n}\r\n",
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [],
+            "methods": [
+                {
+                    "name": "getDialogState",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Subject<ModalDialogResult>",
+                    "typeParameters": [],
+                    "line": 4,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125,
+                        128
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-33cf127e7c068e31906157f64a6fa8d608c166a36fb21d3d93f543391f819a0222b291c588cfc7daf043a487d1cf76b1995895709901211177eacae410b2dae7",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "'jv13-craft-front'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "RouterOutlet"
+                },
+                {
+                    "name": "ButtonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ButtonModule } from 'primeng/button';\n\nimport { Component } from '@angular/core';\nimport { RouterOutlet } from '@angular/router';\n\n@Component({\n    selector: 'app-root',\n    imports: [RouterOutlet, ButtonModule],\n    standalone: true,\n    templateUrl: './app.component.html',\n    styleUrl: './app.component.scss',\n})\nexport class AppComponent {\n    title = 'jv13-craft-front';\n}\n",
+            "styleUrl": "./app.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<router-outlet></router-outlet>\n"
+        },
+        {
+            "name": "AuthComponent",
+            "id": "component-AuthComponent-8df204430e26d31f489795a98479506c08fdf633b6006d8c3e9fd0ab144ccc2fb9fc3f64f0c589a1011fffa642d38a4fd1d13d07f9e5715372b492fceda7c825",
+            "file": "src/app/auth/auth.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [
+                {
+                    "name": "DestroyService",
+                    "type": "injectable"
+                }
+            ],
+            "selector": "app-auth",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./auth.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "ButtonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { ButtonModule } from 'primeng/button';\r\n\r\nimport { ChangeDetectionStrategy, Component } from '@angular/core';\r\n\r\nimport { DestroyService } from '../../core/service/destroy.service';\r\n\r\n@Component({\r\n    selector: 'app-auth',\r\n    imports: [ButtonModule],\r\n    standalone: true,\r\n    templateUrl: './auth.component.html',\r\n    styleUrl: './auth.component.scss',\r\n    providers: [DestroyService],\r\n    changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class AuthComponent {}\r\n",
+            "styleUrl": "./auth.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"container\">\r\n    <div class=\"card flex justify-center\">\r\n        <p-button label=\"Check\" />\r\n    </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "LayoutComponent",
+            "id": "component-LayoutComponent-cca10580b59761ba29ae9e15922d2c00a5f4fadd4c3ef7f8fb0427f2c3be16ab4f8a706ac09f2d5ab0b0ad242980293cb84485bbae90c25bad49ca6a250891ea",
+            "file": "src/layout/layout.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-layout",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./layout.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n    selector: 'app-layout',\r\n    imports: [],\r\n    standalone: true,\r\n    templateUrl: './layout.component.html',\r\n    styleUrl: './layout.component.scss',\r\n})\r\nexport class LayoutComponent {}\r\n",
+            "styleUrl": "./layout.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>layout works!</p>\r\n"
+        }
+    ],
+    "modules": [],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "appConfig",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/app.config.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ApplicationConfig",
+                "defaultValue": "{\n    providers: [\n        provideZoneChangeDetection({ eventCoalescing: true }),\n        provideAnimationsAsync(),\n        providePrimeNG({\n            theme: {\n                preset: Aura,\n            },\n        }),\n\n        importProvidersFrom([\n            BrowserModule,\n            RouterModule.forRoot(MAIN_ROUTES, {\n                preloadingStrategy: PreloadAllModules,\n            }),\n        ]),\n    ],\n}"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [
+            {
+                "name": "ERoute",
+                "childs": [
+                    {
+                        "name": "AUTH",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "auth"
+                    },
+                    {
+                        "name": "LAYOUT",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "layout"
+                    },
+                    {
+                        "name": "MAIN",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "main"
+                    },
+                    {
+                        "name": "PROJECTS",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "projects"
+                    },
+                    {
+                        "name": "EXPERIENCE",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "experience"
+                    },
+                    {
+                        "name": "TECHNOLOGIES",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "technologies"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/utils/enum/route.enum.ts"
+            },
+            {
+                "name": "ModalDialogResult",
+                "childs": [
+                    {
+                        "name": "Opened",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "Confirmed",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "Closed",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/utils/enum/modal-dialog.base.enum.ts"
+            }
+        ],
+        "groupedVariables": {
+            "src/app/app.config.ts": [
+                {
+                    "name": "appConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.config.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ApplicationConfig",
+                    "defaultValue": "{\n    providers: [\n        provideZoneChangeDetection({ eventCoalescing: true }),\n        provideAnimationsAsync(),\n        providePrimeNG({\n            theme: {\n                preset: Aura,\n            },\n        }),\n\n        importProvidersFrom([\n            BrowserModule,\n            RouterModule.forRoot(MAIN_ROUTES, {\n                preloadingStrategy: PreloadAllModules,\n            }),\n        ]),\n    ],\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {
+            "src/utils/enum/route.enum.ts": [
+                {
+                    "name": "ERoute",
+                    "childs": [
+                        {
+                            "name": "AUTH",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "auth"
+                        },
+                        {
+                            "name": "LAYOUT",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "layout"
+                        },
+                        {
+                            "name": "MAIN",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "main"
+                        },
+                        {
+                            "name": "PROJECTS",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "projects"
+                        },
+                        {
+                            "name": "EXPERIENCE",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "experience"
+                        },
+                        {
+                            "name": "TECHNOLOGIES",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "technologies"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/utils/enum/route.enum.ts"
+                }
+            ],
+            "src/utils/enum/modal-dialog.base.enum.ts": [
+                {
+                    "name": "ModalDialogResult",
+                    "childs": [
+                        {
+                            "name": "Opened",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "Confirmed",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "Closed",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/utils/enum/modal-dialog.base.enum.ts"
+                }
+            ]
+        },
+        "groupedTypeAliases": {}
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.config.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "appConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/auth/auth.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AuthComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/core/service/destroy.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "DestroyService",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/layout/layout.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LayoutComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/utils/enum/modal-dialog.base.enum.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "ModalDialogBase",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            }
+        ]
+    }
+}
